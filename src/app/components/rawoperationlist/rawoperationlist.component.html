@@ -1,0 +1,31 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Date</th>
+          <th scope="col">DateValeur</th>
+          <th scope="col">Libelle</th>
+          <th scope="col">Montant</th>
+          <th scope="col">Type</th>
+          <th scope="col">Solde</th>
+          <th scope="col">Proof</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rawOperation of rawOperations">
+          <td>{{ rawOperation.id }}</td>
+          <td>{{ rawOperation.Date }}</td>
+          <td>{{ rawOperation.DateValeur }}</td>
+          <td>{{ rawOperation.Libelle }}</td>
+          <td>{{ rawOperation.Montant }}</td>
+          <td>{{ rawOperation.Type }}</td>
+          <td>{{ rawOperation.Solde }}</td>
+          <td>{{ rawOperation.Proof }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

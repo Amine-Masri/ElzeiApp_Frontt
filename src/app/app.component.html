@@ -1,14 +1,14 @@
 
-  <div class="nav"> 
+  <div class="nav">
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
       <img src="/assets/elzeilogo.png" alt="Logo" width="100">
     </div>
     <div class="nav-btn">
-      <label for="nav-check"> 
+      <label for="nav-check">
         <span></span>
-         <span></span> 
-         <span></span> 
+         <span></span>
+         <span></span>
         </label>
     </div>
     <div class="nav-links"> <a href="home" class="navbar-brand">Gestion Comptes Comptables</a> </div>
@@ -18,7 +18,7 @@
 
     <div class="nav-links">
       <a>Comptes</a>
-      <div class="dropdown-content"> 
+      <div class="dropdown-content">
         <li>
           <a class="dropdown-item" routerLink="Comptes"  >Liste Comptes</a>
         </li> <a href="add">Ajouter Compte</a>
@@ -41,7 +41,14 @@
         </li> <a href="Mapping" (click)="mapFromRawOperation()">Bank Statment Mapper</a>
       </div>
     </div>
-  
+    <div class="nav-links">
+      <a>RawData</a>
+      <div class="dropdown-content">
+        <li>
+          <a class="dropdown-item" routerLink="raw-operations"  >Liste Data</a>
+        </li> <a href="#">Ajouter Data</a>
+      </div>
+    </div>
   <p></p>
   <div class="container mt-3">
     <router-outlet></router-outlet>

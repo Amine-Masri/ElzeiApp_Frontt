@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  [x: string]: any;
 
   private baseUrl: string = "http://localhost:8080/api/v1/test/mapping";
   constructor(private http: HttpClient) { }

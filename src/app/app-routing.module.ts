@@ -6,7 +6,7 @@ import { AddCompteComponent } from './components/add-compte/add-compte.component
 import { ListeClassesComponent } from './components/liste-classes/liste-classes.component';
 import { IndexComponent } from './components/index/index.component';
 import { AddClasseComponent } from './components/add-classe/add-classe.component';
-
+import { RawoperationlistComponent } from './components/rawoperationlist/rawoperationlist.component';
 import { TableauComptesComponent } from './components/tableau-comptes/tableau-comptes.component';
 import { ListeOperationsComponent } from './components/liste-operations/liste-operations.component';
 import { OpertationDetailsComponent } from './components/opertation-details/opertation-details.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'operation', component: ListeOperationsComponent },
   { path: 'detailsOperation/:id', component: OpertationDetailsComponent },
   { path: 'Mapping', component: MappingComponentComponent },
-
+  { path: 'raw-operations', component: RawoperationlistComponent },
 
   { path: '**', redirectTo: 'home' } // Redirection vers 'home' pour les chemins inconnus
 ];

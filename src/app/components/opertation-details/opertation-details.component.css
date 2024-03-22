@@ -45,8 +45,7 @@ h1 {
   transform-style:preserve-3d;
 }
 body{
- 
-background: url("../assets/image.jpg");
+
   background-size:100% auto;
   position: absolute;
   top: 90px;
@@ -130,7 +129,7 @@ a{color:inherit;text-decoration:none}
   cursor: pointer;
   justify-content: center;
   margin: 50px 50px 50px 150px;
-  
+
 }
 
 .form-button:hover {
