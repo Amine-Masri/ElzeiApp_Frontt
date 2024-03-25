@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { RawOperation } from 'src/app/models/rawoperation.model';
-import { RawOperationService } from 'src/app/services/rawoperation.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {RawOperation} from 'src/app/models/rawoperation.model';
+import {RawOperationService} from 'src/app/services/rawoperation.service';
 
 @Component({
   selector: 'app-rawoperationlist',
@@ -14,8 +14,9 @@ export class RawoperationlistComponent implements OnInit {
   loading: boolean = true; // Add loading property
 
   constructor(private rawOperationService: RawOperationService,
-    private router: Router // Inject Router
-  ) { }
+              private router: Router // Inject Router
+  ) {
+  }
 
   ngOnInit(): void {
     this.getRawOperations();
@@ -23,7 +24,10 @@ export class RawoperationlistComponent implements OnInit {
 
   getRawOperations(): void {
     this.rawOperationService.getAllRawOperations()
-      .subscribe(rawOperations => this.rawOperations = rawOperations);
+      .subscribe(rawOperations => {
+        this.rawOperations = rawOperations
+        console.log(this.rawOperations)
+      });
   }
 
   navigateToAnotherComponent(): void {

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { IndexComponent } from './components/index/index.component';
 import { AddClasseComponent } from './components/add-classe/add-classe.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,6 +40,7 @@ import { TableauComptesComponent } from './components/tableau-comptes/tableau-co
 import { ListeOperationsComponent } from './components/liste-operations/liste-operations.component';
 import { OpertationDetailsComponent } from './components/opertation-details/opertation-details.component';
 import { MappingComponentComponent } from './components/mapping-component/mapping-component.component';
+import {RawoperationlistComponent} from "./components/rawoperationlist/rawoperationlist.component";
 
 
 
@@ -58,12 +59,12 @@ import { MappingComponentComponent } from './components/mapping-component/mappin
     ListeOperationsComponent,
     OpertationDetailsComponent,
     MappingComponentComponent,
-   
+    RawoperationlistComponent
   ],
 
   imports: [
-   
-    BrowserModule,    
+
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -83,14 +84,14 @@ import { MappingComponentComponent } from './components/mapping-component/mappin
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-ReactiveFormsModule , 
+ReactiveFormsModule ,
 MatFormFieldModule,
 MatInputModule,
 MatIconModule,
 MatDialogModule,
 FormsModule
 
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
