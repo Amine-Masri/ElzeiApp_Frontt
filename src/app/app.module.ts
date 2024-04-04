@@ -11,7 +11,6 @@ import {CompteDetailsComponent} from './components/compte-details/compte-details
 import {ComptesListComponent} from './components/comptes-list/comptes-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ListeClassesComponent} from './components/liste-classes/liste-classes.component';
-import {FormBuilder, Validators} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdbAccordionModule} from 'mdb-angular-ui-kit/accordion';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
