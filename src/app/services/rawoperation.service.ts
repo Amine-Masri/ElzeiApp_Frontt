@@ -12,6 +12,17 @@ export class RawOperationService {
 
   constructor(private http: HttpClient) { }
 
+  executeSG(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/execute-sg`, {});
+  }
+
+  executeBP(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/execute-bp`, {});
+  }
+
+  executeBNP(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/execute-bnp`, {});
+  }
   getAllRawOperations(): Observable<RawOperation[]> {
     return this.http.get<RawOperation[]>(this.baseUrl);
   }
