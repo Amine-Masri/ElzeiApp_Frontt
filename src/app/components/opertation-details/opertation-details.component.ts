@@ -21,12 +21,12 @@ export class OpertationDetailsComponent {
   constructor(private  compteService:CompteService,private  OperationService:OperationService, private activatedRoute: ActivatedRoute ,
     private router: Router,   private http: HttpClient,private classeService: ClasseService,private justificatifService:JustificatifService) {
       const state = this.router.getCurrentNavigation()?.extras?.state;
-      
+
 
      }
      @ViewChild('compteSelect') compteSelect!: MatSelect;
      selectedCompte: Compte | undefined = undefined;
-     
+
      selectedOperation: any = {};
      operationId: number | undefined;
 
@@ -37,7 +37,7 @@ export class OpertationDetailsComponent {
      private baseUrl: string = "http://localhost:8080/api/v1/test/justificatif";
      operation: Operation | null = null; // Initialize operation with an empty object
      selectedClasse: Classe | undefined;
-  
+
      classeId: string = 'all';
      comptes: Compte[] = [];
      selectedClasseColor: string | undefined;
@@ -45,23 +45,23 @@ export class OpertationDetailsComponent {
       this.activatedRoute.params.subscribe(params => {
         this.operationId = +params['id'];
         const classeId = +params['id'];
-        
+
         // Récupérer les détails de l'operation depuis le service
         this.OperationService.getOperationById(this.operationId).subscribe(
           (operation) => {
             this.selectedOperation = operation;
-      
+
           },
           (error) => {
             console.error('Erreur lors du chargement des détails de l\'opération', error);
           }
         );
-        
+
         // Récupérer les détails de la classe depuis le service
         this.classeService.getClasse(classeId).subscribe(
           (classe) => {
             this.selectedClasse = classe;
-    
+
             // Chargez tous les comptes initialement
             this.fetchComptes('all'); // Assurez-vous que la classeId passée ici est valide
           },
@@ -75,10 +75,10 @@ export class OpertationDetailsComponent {
     onCompteChange(event: any): void {
       // Obtenez la valeur sélectionnée du MatSelect
       const selectedCompteId = this.compteSelect.value;
-    
+
       // Mettez à jour la valeur sélectionnée
       this.selectedCompteId = selectedCompteId;
-    
+
       // Si selectedCompteId est null, cela signifie que l'utilisateur saisit manuellement
       if (selectedCompteId === null) {
         // Effectuez le traitement nécessaire pour une saisie manuelle
@@ -87,7 +87,7 @@ export class OpertationDetailsComponent {
       } else {
         // Recherchez le compte correspondant à l'ID sélectionné
         this.selectedCompte = this.comptes.find(c => c.id === selectedCompteId);
-    
+
         // Si aucun compte n'a été trouvé, affectez selectedCompte à undefined
         if (!this.selectedCompte) {
           this.selectedCompte = undefined;
@@ -96,15 +96,15 @@ export class OpertationDetailsComponent {
     }
 
   listClasses(){
- 
+
     this.classeService.getClasses().subscribe((res:any) =>{
       this.classes=res
       console.log("reponse",this.classes)
-     
+
     }
     )
   }
- 
+
 
 listComptes(){
 
@@ -131,7 +131,7 @@ fetchComptes(classeId: string): void {
       if (this.selectedCompteId !== null) {
         this.selectedCompte = this.comptes.find(c => c.id === this.selectedCompteId);
 
-       
+
       }
     },
     (error) => {
@@ -273,6 +273,6 @@ onSubmit(): void {
 
   }
 
- 
+
 
 

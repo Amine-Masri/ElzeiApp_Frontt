@@ -53,30 +53,32 @@ export class RawoperationlistComponent implements OnInit {
   onSelectFile(): void {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = '.pdf, .png, .jpg'; // Accept PDF, PNG, and JPG files
+    fileInput.accept = '.pdf'; // Accept only PDF files
     fileInput.onchange = (event: any) => {
       const file = event.target.files[0];
-      this.extractTextFromImage(file);
+      this.extractTextFromPdf(file);
     };
     fileInput.click();
   }
 
-  extractTextFromImage(file: File): void {
+  extractTextFromPdf(file: File): void {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
 
     // Replace 'Azure_OCR_API_Endpoint' with your actual Azure OCR API endpoint
     const apiUrl = 'https://computervisionocrpfe.cognitiveservices.azure.com/';
 
-    // Call Azure OCR API to extract text from the selected image file
+    // Call Azure OCR API to extract text from the selected PDF file
     this.http.post<any>(apiUrl, formData).subscribe(
       (response) => {
-        // Handle API response (e.g., display extracted text)
-        console.log(response);
+        // Assuming the response contains extracted text
+        const extractedText = response.text;
+        // @ts-ignore
+        const rawOperation: RawOperation = { id: this.rawOperations.length + 1, extractedText };
+        this.rawOperations.push(rawOperation);
       },
       (error) => {
-        // Handle API error
-        console.error(error);
+        console.error('Error extracting text from PDF:', error);
       }
     );
   }
