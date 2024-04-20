@@ -1,44 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { FileService } from '../../services/file-upload.service';
-import { MyFile } from '../../models/file.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  standalone: true,
   styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent implements OnInit {
 
-  files: MyFile[] = [];
+  selectedFile: File | null = null;
 
-  constructor(private fileService: FileService) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.loadFiles();
   }
 
+  onFileSelected(event: any) {
+    this.selectedFile = <File>event.target.files[0];
+  }
 
-  loadFiles() {
-    this.fileService.getAllFiles().subscribe(
-        (files: MyFile[]) => {
-            this.files = files;
-        },
-        error => {
-            console.log('Error loading files:', error);
-        }
-    );
-}
+  onUpload() {
+    if (!this.selectedFile) {
+      console.error('No file selected.');
+      return;
+    }
 
-  downloadFile(id: number) {
-    this.fileService.downloadFile(id).subscribe(
-      (data: Blob) => {
-        const blob = new Blob([data], { type: 'application/octet-stream' });
-        const url = window.URL.createObjectURL(blob);
-        window.open(url);
+    const formData: FormData = new FormData();
+    formData.append('file', this.selectedFile, this.selectedFile.name);
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+
+    this.http.post('http://localhost:8080/api/v1/file/upload', formData, {
+      headers: headers,
+      responseType: 'text' as 'json' // or 'arraybuffer'
+    }).subscribe(
+      response => {
+        console.log(response);
       },
       error => {
-        console.log('Error downloading file:', error);
+        console.log(error);
       }
     );
   }

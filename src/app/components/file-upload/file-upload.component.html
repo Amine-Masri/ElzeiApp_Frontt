@@ -1,25 +1,2 @@
-<!-- file-list.component.html -->
-
-<div>
-  <h2>Liste des fichiers</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nom du fichier</th>
-        <th>Description</th>
-        <th>Télécharger</th>
-        <th>type</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let file of files">
-        <td>{{ file.id }}</td>
-        <td>{{ file.filename }}</td>
-        <td>{{ file.description }}</td>
-        <td>{{ file.type }}</td>
-        <td><button *ngIf="file.id" (click)="downloadFile(file.id!)">Télécharger</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="onUpload()">Upload</button>
