@@ -12,6 +12,7 @@ import { ListeOperationsComponent } from './components/liste-operations/liste-op
 import { OpertationDetailsComponent } from './components/opertation-details/opertation-details.component';
 import { MappingComponentComponent } from './components/mapping-component/mapping-component.component';
 import {FileUploadComponent} from "./components/file-upload/file-upload.component";
+import { FichierslistComponent } from './components/fichierslist/fichierslist.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'Mapping', component: MappingComponentComponent },
   { path: 'raw-operations', component: RawoperationlistComponent },
   { path: 'file', component: FileUploadComponent },
+  { path: 'fileList', component: FichierslistComponent },
 
   { path: '**', redirectTo: 'home' } // Redirection vers 'home' pour les chemins inconnus
 ];

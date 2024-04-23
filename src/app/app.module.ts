@@ -40,6 +40,7 @@ import {ListeOperationsComponent} from './components/liste-operations/liste-oper
 import {OpertationDetailsComponent} from './components/opertation-details/opertation-details.component';
 import {MappingComponentComponent} from './components/mapping-component/mapping-component.component';
 import {RawoperationlistComponent} from "./components/rawoperationlist/rawoperationlist.component";
+import { FichierslistComponent } from './components/fichierslist/fichierslist.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {RawoperationlistComponent} from "./components/rawoperationlist/rawoperat
     ListeOperationsComponent,
     OpertationDetailsComponent,
     MappingComponentComponent,
-    RawoperationlistComponent
+    RawoperationlistComponent,
+    FichierslistComponent
   ],
 
   imports: [

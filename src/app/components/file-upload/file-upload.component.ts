@@ -17,8 +17,11 @@ export class FileUploadComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
-  }
 
+    if (this.selectedFile) {
+      this.onUpload(); // Démarre le téléchargement immédiatement après la sélection du fichier
+    }
+  }
   onUpload() {
     if (!this.selectedFile) {
       console.error('No file selected.');

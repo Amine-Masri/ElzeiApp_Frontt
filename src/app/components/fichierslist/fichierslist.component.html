@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Fichier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let file of files">
+      <td>{{ file.id }}</td>
+      <td>{{ file.description }}</td>
+
+    </tr>
+  </tbody>
+</table>

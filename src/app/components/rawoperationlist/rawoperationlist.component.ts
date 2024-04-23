@@ -22,26 +22,7 @@ export class RawoperationlistComponent implements OnInit {
   ngOnInit(): void {
     this.getRawOperations();
   }
-  executeSG(): void {
-    this.rawOperationService.executeSG().subscribe(
-      response => console.log('SG Analysis executed successfully'),
-      error => console.error('Error executing SG Analysis:', error)
-    );
-  }
-
-  executeBP(): void {
-    this.rawOperationService.executeBP().subscribe(
-      response => console.log('BP Analysis executed successfully'),
-      error => console.error('Error executing BP Analysis:', error)
-    );
-  }
-
-  executeBNP(): void {
-    this.rawOperationService.executeBNP().subscribe(
-      response => console.log('BNP Analysis executed successfully'),
-      error => console.error('Error executing BNP Analysis:', error)
-    );
-  }
+  
   getRawOperations(): void {
     this.rawOperationService.getAllRawOperations()
       .subscribe(rawOperations => {
