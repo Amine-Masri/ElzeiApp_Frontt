@@ -4,28 +4,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.css']
+  styleUrls: ['./file-upload.component.css'],
 })
 export class FileUploadComponent implements OnInit {
-
   selectedFile: File | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onFileSelected(event: any) {
-    this.selectedFile = <File>event.target.files[0];
+  onFileSelected(event: any, endpoint: string): void {
+    this.selectedFile = event.target.files[0];
 
     if (this.selectedFile) {
-      this.onUpload(); // Démarre le téléchargement immédiatement après la sélection du fichier
+      this.onUpload(endpoint); // Upload based on the selected endpoint
     }
   }
-  onUpload() {
+
+  onUpload(endpoint: string): void {
     if (!this.selectedFile) {
-      console.error('No file selected.');
-      return;
+        console.error('No file selected.');
+        return;
     }
 
     const formData: FormData = new FormData();
@@ -35,16 +34,37 @@ export class FileUploadComponent implements OnInit {
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
 
-    this.http.post('http://localhost:8080/api/v1/file/upload', formData, {
-      headers: headers,
-      responseType: 'text' as 'json' // or 'arraybuffer'
+    let url: string;
+
+    // Correct endpoint based on the input
+    switch (endpoint) {
+        case 'pdfToTextWithOCR':
+            url = 'http://localhost:8080/api/v1/file/uploadSG';
+            break;
+        case 'OCRUGB':
+            url = 'http://localhost:8080/api/v1/file/uploadUGB';
+            break;
+        case 'uploadGCA':
+            url = 'http://localhost:8080/api/v1/file/uploadGCA';
+            break;
+        case 'OCRBP':
+            url = 'http://localhost:8080/api/v1/file/uploadBP'; // Ensure this matches the backend
+            break;
+        default:
+            console.error('Invalid endpoint:', endpoint);
+            return; // Early return if the endpoint is invalid
+    }
+
+    this.http.post(url, formData, {
+        headers,
+        responseType: 'text' as 'json', // Ensure correct response type
     }).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
+        (response) => {
+            console.log('Upload successful:', response);
+        },
+        (error) => {
+            console.error('Upload failed:', error);
+        }
     );
   }
 }

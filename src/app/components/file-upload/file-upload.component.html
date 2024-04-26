@@ -1,17 +1,34 @@
 <div class="container">
-    <div class="file-upload">
-      <input type="file" (change)="onFileSelected($event)" id="file-upload-socgen">
-      <label for="file-upload-socgen">
-        <img src="assets/societe-generale-logo_2.png" alt="Société Générale">
-      </label>
-    </div>
+  <div class="file-upload">
+    <input type="file" (change)="onFileSelected($event, 'pdfToTextWithOCR')" id="file-upload-socgen">
+    <label for="file-upload-socgen">
+      <img src="assets/societe-generale-logo_2.png" alt="Société Générale">
+    </label>
+  </div>
 
-    <div class="file-upload">
-      <input type="file" (change)="onFileSelected($event)" id="file-upload-bankcentral">
-      <label for="file-upload-bankcentral">
-        <img src="assets/Logo_La_Banque_postale_2022.svg.png" alt="Bank Central">
-      </label>
-    </div>
+  <div class="file-upload">
+    <input type="file" (change)="onFileSelected($event, 'OCRUGB')" id="file-upload-ugb">
+    <label for="file-upload-ugb">
+      <img src="../../../assets/UGB.png" alt="UGB">
+    </label>
+  </div>
+
+  <div class="file-upload">
+    <input type="file" (change)="onFileSelected($event, 'uploadGCA')" id="file-upload-gca">
+    <label for="file-upload-gca">
+      <img src="assets/GCALOGO.png" alt="GCA">
+    </label>
+  </div>
+</div>
+
+<div class="file-upload">
+  <input type="file" (change)="onFileSelected($event, 'OCRBP')" id="file-upload-bp"> <!-- Ensure this matches -->
+  <label for="file-upload-bp">
+      <img src="" alt="BP">
+  </label>
+</div>
+<!--
+
 
     <div class="file-upload">
       <input type="file" (change)="onFileSelected($event)" id="file-upload-upload">
@@ -30,13 +47,6 @@
     <div class="file-upload">
       <input type="file" (change)="onFileSelected($event)" id="file-upload-upload">
       <label for="file-upload-upload">
-        <img src="assets\5a6609398d543f584e0c970e.png" alt="Upload">
-      </label>
-    </div>
-
-    <div class="file-upload">
-      <input type="file" (change)="onFileSelected($event)" id="file-upload-upload">
-      <label for="file-upload-upload">
         <img src="assets\20466800-diaporama.png" alt="Upload">
       </label>
     </div>
@@ -47,4 +57,11 @@
         <img src="assets\Credit-Mutuel.jpg" alt="Upload">
       </label>
     </div>
+
+  <div class="file-upload">
+    <input type="file" (change)="onFileSelected($event)" id="file-upload-upload">
+    <label for="file-upload-upload">
+      <img src="assets\CL.jpg" alt="Upload">
+    </label>
   </div>
+  </div>-->
