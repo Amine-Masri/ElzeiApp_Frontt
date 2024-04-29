@@ -1,0 +1,24 @@
+<div>
+  <h2>Create New Raw Operation</h2>
+  <form (ngSubmit)="create()">
+    <label>Date:</label>
+    <input type="date" [(ngModel)]="newRawOperation.date" name="date" required />
+
+    <label>Date Valeur:</label>
+    <input type="date" [(ngModel)]="newRawOperation.dateValeur" name="dateValeur" required />
+
+    <label>Libelle:</label>
+    <input type="text" [(ngModel)]="newRawOperation.libelle" name="libelle" required />
+
+    <label>Montant:</label>
+    <input type="number" [(ngModel)]="newRawOperation.montant" name="montant" required />
+
+    <label>Type:</label>
+    <input type="text" [(ngModel)]="newRawOperation.type" name="type" required />
+
+    <label>Solde:</label>
+    <input type="number" [(ngModel)]="newRawOperation.solde" name="solde" required />
+
+    <button type="submit">Create</button>
+  </form>
+</div>

@@ -1,16 +1,18 @@
 <div class="card my-5">
   <div class="card-body">
     <div class="card my-5">
-
+      <!-- Barre de recherche -->
+      <input type="text" placeholder="Rechercher..." [(ngModel)]="searchTerm" (input)="onSearch()" />
+      <button (click)="navigateToCreate()" routerLink="ajout">Create New</button>
     </div>
+
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Id</th>
           <th scope="col">Date</th>
           <th scope="col">DateValeur</th>
           <th scope="col">Libelle</th>
-
           <th scope="col">Montant</th>
           <th scope="col">Type</th>
           <th scope="col">Solde</th>
@@ -18,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let rawOperation of rawOperations">
+        <tr *ngFor="let rawOperation of filteredRawOperations">
           <td>{{ rawOperation.id }}</td>
           <td>{{ rawOperation.date }}</td>
           <td>{{ rawOperation.dateValeur }}</td>
@@ -26,11 +28,13 @@
           <td>{{ rawOperation.montant }}</td>
           <td>{{ rawOperation.type }}</td>
           <td>{{ rawOperation.solde }}</td>
-          <td><i class="fa-solid fa-xmark" *ngIf="rawOperation.justificatif===null"></i> </td>
-<!--          <td>{{ rawOperation.justificatif }}</td>-->
+          <td><i class="fa-solid fa-xmark" *ngIf="rawOperation.justificatif === null"></i></td>
+          <td>
+            <button (click)="navigateToEdit(rawOperation.id)">Edit</button>
+            <button (click)="deleteRawOperation(rawOperation.id)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-
 </div>

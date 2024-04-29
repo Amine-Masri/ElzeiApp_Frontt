@@ -1,0 +1,24 @@
+<div>
+  <h2>Edit Raw Operation</h2>
+  <form (ngSubmit)="update()">
+    <label>Date:</label>
+    <input type="date" [(ngModel)]="rawOperation.date" name="date" required />
+
+    <label>Date Valeur:</label>
+    <input type="date" [(ngModel)]="rawOperation.dateValeur" name="dateValeur" required />
+
+    <label>Libelle:</label>
+    <input type="text" [(ngModel)]="rawOperation.libelle" name="libelle" required />
+
+    <label>Montant:</label>
+    <input type="number" [(ngModel)]="rawOperation.montant" name="montant" required />
+
+    <label>Type:</label>
+    <input type="text" [(ngModel)]="rawOperation.type" name="type" required />
+
+    <label>Solde:</label>
+    <input type="number" [(ngModel)]="rawOperation.solde" name="solde" required />
+
+    <button type="submit">Update</button>
+  </form>
+</div>
