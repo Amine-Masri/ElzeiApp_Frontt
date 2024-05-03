@@ -33,7 +33,6 @@ import {RawoperationlistComponent} from "./components/rawoperationlist/rawoperat
 import { FichierslistComponent } from './components/fichierslist/fichierslist.component';
 import { RawOperationCreateComponent } from './components/rawoperationcreate/rawoperationcreate.component';
 import { RawOperationEditComponent } from './components/rawoperationedit/rawoperationedit.component';
-import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -44,7 +43,7 @@ import { LoginComponent } from './components/login/login.component';
     FichierslistComponent,
     RawOperationCreateComponent,
     RawOperationEditComponent,
-    LoginComponent
+
   ],
 
   imports: [

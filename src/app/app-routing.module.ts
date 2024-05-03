@@ -8,11 +8,9 @@ import {FileUploadComponent} from "./components/file-upload/file-upload.componen
 import { FichierslistComponent } from './components/fichierslist/fichierslist.component';
 import { RawOperationCreateComponent } from './components/rawoperationcreate/rawoperationcreate.component';
 import { RawOperationEditComponent } from './components/rawoperationedit/rawoperationedit.component';
-import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './services/authguard.service';
+
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'Mapping', component: MappingComponentComponent },
   { path: 'raw-operations', component: RawoperationlistComponent },
